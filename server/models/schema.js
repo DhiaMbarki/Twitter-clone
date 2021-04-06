@@ -15,4 +15,4 @@ const userSchema = new mongoose.Schema({
     }
 })
 
-mongoose.model("schema",userSchema)
+ mongoose.model("schema",userSchema)
