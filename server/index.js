@@ -4,15 +4,10 @@ const mongoose = require("mongoose");
 const PORT = 8000;
 const { MONGOURI } = require("./mongo");
 
-
-
-mongoose.connect(MONGOURI,{
-    useNewUrlParser: true,
-    useUnifiedTopology: true 
-})
-
-
-
+mongoose.connect(MONGOURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 mongoose.connection.on("connected", () => {
   console.log("connected to mongo with successfully :)");
@@ -20,10 +15,6 @@ mongoose.connection.on("connected", () => {
 mongoose.connection.on("ERROR", (error) => {
   console.log("there is error :( ", error);
 });
-
-
-
-
 
 const customMiddleware = (req, res, next) => {
   console.log("middleware working fine");
