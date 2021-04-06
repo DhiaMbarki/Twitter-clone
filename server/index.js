@@ -1,30 +1,46 @@
-const express = require('express')
-const app = express()
-
+const express = require("express");
+const app = express();
+const mongoose = require("mongoose");
 const PORT = 8000;
-// Js2bFlOsoetlNQNk
-
-const customMiddleware = (req,res,next) =>{
-    console.log("middleware working fine" )
-    next()
-}
-app.use(customMiddleware)
+const { MONGOURI } = require("./mongo");
 
 
-app.get('/', (req,res)=>{
-    console.log("test")
-    res.send("hey there")
-})
 
-
-app.get('/about',customMiddleware, (req,res)=>{
-    console.log("about")
-    res.send("about page")
+mongoose.connect(MONGOURI,{
+    useNewUrlParser: true,
+    useUnifiedTopology: true 
 })
 
 
 
 
-app.listen(PORT,()=> {
-    console.log("server jawou behi", PORT)
-})
+mongoose.connection.on("connected", () => {
+  console.log("connected to mongo with successfully :)");
+});
+mongoose.connection.on("ERROR", (error) => {
+  console.log("there is error :( ", error);
+});
+
+
+
+
+
+const customMiddleware = (req, res, next) => {
+  console.log("middleware working fine");
+  next();
+};
+app.use(customMiddleware);
+
+app.get("/", (req, res) => {
+  console.log("test");
+  res.send("hey there");
+});
+
+app.get("/about", customMiddleware, (req, res) => {
+  console.log("about");
+  res.send("about page");
+});
+
+app.listen(PORT, () => {
+  console.log("server jawou behi", PORT);
+});
