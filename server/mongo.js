@@ -1,3 +1,5 @@
-module.exports={
-    MONGOURI:"mongodb+srv://dhia:Js2bFlOsoetlNQNk@cluster0.6ikp4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
-}
+module.exports = {
+  MONGOURI:
+    "mongodb+srv://dhia:Js2bFlOsoetlNQNk@cluster0.6ikp4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+  JWT_SECRET: "ygyfyfjyfr55",
+};
