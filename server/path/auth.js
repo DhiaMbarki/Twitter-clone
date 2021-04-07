@@ -7,9 +7,7 @@ const jwt = require("jsonwebtoken");
 const { JWT_SECRET } = require("../mongo");
 const Login = require("../middle/Login");
 
-router.get("/protected", Login, (req, res) => {
-  res.send("hello there");
-});
+
 
 router.post("/signup", (req, res) => {
   const { name, email, password } = req.body;
