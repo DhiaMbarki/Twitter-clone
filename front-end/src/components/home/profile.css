@@ -1,0 +1,11 @@
+.gall{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .item{
+    width: 30%;
+      border-Radius: 15px
+  }
+  
