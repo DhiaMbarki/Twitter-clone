@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from "react-router-dom";
+
 
 function Signin() {
     return (
@@ -11,8 +13,10 @@ function Signin() {
          <input type="text"
         placeholder="password"
         />
-       <a className="waves-effect waves-light btn-small">signin</a>
-
+       <button className="waves-effect waves-light btn-small">signin</button>
+       <h5>
+<Link to="/Signup"> You don't have an account ..</Link>
+</h5>
       </div>
         </div>
     )
