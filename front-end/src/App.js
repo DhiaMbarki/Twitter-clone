@@ -6,7 +6,7 @@ import Home from "./components/home/Home";
 import Profile from "./components/home/Profile";
 import Signin from "./components/home/Signin";
 import Signup from "./components/home/Signup";
-
+import "./App.css"
 function App() {
   return (
     <BrowserRouter>

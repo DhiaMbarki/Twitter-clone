@@ -7,7 +7,7 @@ function Signin() {
         <div>
         
       
-        <div className="card">
+        <div className="cardd">
             <div className="card1">
         <h2>𝘛𝘸𝘦𝘦𝘵𝘭𝘦𝘳</h2>
         <input type="text"
@@ -18,7 +18,8 @@ function Signin() {
         />
        <button className="waves-effect waves-light btn-small">signin</button>
        <h5>
-<Link to="/Signup"> You don't have an account ..</Link>
+           
+<Link  to="/Signup"> <p className="colll">You don't have an account ..</p></Link>
 </h5>
       </div>
         </div>
