@@ -9,6 +9,8 @@ function Nav() {
             <li><Link to="/signin">signin</Link></li>
             <li><Link to="/signup">signup</Link></li>
             <li><Link to="/profile">Profile</Link></li>
+            <li><Link to="/addpost">AddPost</Link></li>
+
           </ul>
         </div>
       </nav>
