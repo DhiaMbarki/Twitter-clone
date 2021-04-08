@@ -11,6 +11,7 @@ function App() {
   return (
     <BrowserRouter>
       <Nav />
+      
       <Route exact path="/">
         <Home />
       </Route>
@@ -20,6 +21,7 @@ function App() {
       <Route path="/signup">
         <Signup />
       </Route>
+      
       <Route path="/profile">
         <Profile />
       </Route>

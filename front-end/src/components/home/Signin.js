@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 
 function Signin() {
     return (
+        <div>
+        
+      
         <div className="card">
             <div className="card1">
         <h2>𝘛𝘸𝘦𝘦𝘵𝘭𝘦𝘳</h2>
@@ -18,6 +21,8 @@ function Signin() {
 <Link to="/Signup"> You don't have an account ..</Link>
 </h5>
       </div>
+        </div>
+        
         </div>
     )
 }
