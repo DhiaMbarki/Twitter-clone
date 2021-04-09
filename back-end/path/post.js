@@ -24,7 +24,7 @@ router.post("/createpost", requireLogin, (req, res) => {
   const post = new Post({
     title,
     body,
-    picture,
+    photo:picture,
     postedBy: req.user,
   });
   post
