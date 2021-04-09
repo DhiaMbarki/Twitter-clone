@@ -11,7 +11,9 @@ import "./App.css";
 import AddPost from "./components/home/AddPost";
 import Profile from "./components/home/profile/Profile";
 function App() {
+  
   return (
+    <div className="back">
     <BrowserRouter>
       <Nav />
 
@@ -32,6 +34,7 @@ function App() {
         <AddPost />
       </Route>
     </BrowserRouter>
+    </div>
   );
 }
 

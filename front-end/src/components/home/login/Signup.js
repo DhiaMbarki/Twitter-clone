@@ -78,7 +78,7 @@ const SignIn = () => {
   return (
     <div className="cardd">
       <div className="card1">
-        <h2>Tweetler</h2>
+        <h2>♕ 𝕋𝕨𝕖𝕖𝕥𝕝𝕖𝕣 ♕</h2>
         <input
           type="text"
           placeholder="name"

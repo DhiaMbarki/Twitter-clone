@@ -9,7 +9,7 @@ const Signin  = ()=>{
     const [email,setEmail] = useState("")
     const PostData = ()=>{
         if(!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)){  //from emailregex.com
-            design.toast({html: "invalid email",classes:"#c62828 red darken-3"})
+            design.toast({html: "pleaze enter your informations :(",classes:"#000000 black"})
             return
         }
         fetch("/signin",{
@@ -25,13 +25,13 @@ const Signin  = ()=>{
         .then(data=>{
             console.log(data)
            if(data.error){
-              design.toast({html: data.error,classes:"#c62828 red darken-3"})
+              design.toast({html: data.error,classes:"#000000 black"})
            }
            else{
                localStorage.setItem("jwt",data.token)
                localStorage.setItem("user",JSON.stringify(data.user))
             //    dispatch({type:"USER",payload:data.user})
-               design.toast({html:"signedin success",classes:"#43a047 green darken-1"})
+               design.toast({html:"signedin success",classes:"#000000 black"})
                history.push('/')
            }
         }).catch(err=>{
@@ -41,7 +41,7 @@ const Signin  = ()=>{
    return (
       <div className="cardd">
           <div className="card1 auth-card input-field">
-            <h2>Instagram</h2>
+            <h2>♕ 𝕋𝕨𝕖𝕖𝕥𝕝𝕖𝕣 ♕</h2>
             <input
             type="text"
             placeholder="email"
@@ -54,7 +54,7 @@ const Signin  = ()=>{
             value={password}
             onChange={(e)=>setPasword(e.target.value)}
             />
-            <button className="btn waves-effect waves-light #64b5f6 blue darken-1"
+            <button className="waves-effect waves-light btn-small"
             onClick={()=>PostData()}
             >
                 Login
