@@ -3,8 +3,8 @@ import Nav from "./components/Nav";
 import Home from "./components/home/Home";
 import "./App.css";
 
-import Signup from "./components/home/Signup";
-import Signin from "./components/home/Signin";
+import Signup from "./components/home/login/Signup";
+import Signin from "./components/home/login/Signin";
 import { BrowserRouter, Route } from "react-router-dom";
 
 import "./App.css";
