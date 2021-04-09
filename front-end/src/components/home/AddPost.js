@@ -13,19 +13,19 @@ function AddPost() {
     const data = new FormData()
     data.append("file",image)
     data.append("upload_preset","tweetler")
-    data.append("cloud_name","cnq")
-    fetch("https://api.cloudinary.com/v1_1/cnq/image/upload",{
+    data.append("cloud_name","RBK")
+    fetch("	https://api.cloudinary.com/v1_1/rbkk/image/upload",{
         method:"post",
         body:data
     })
     .then(res=>res.json())
     .then(data=>{
-       setUrl(data.url)
+    //    setUrl(data.url)
+    console.log(data)
     })
     .catch(err=>{
         console.log(err)
     })
-
  
 }
 
