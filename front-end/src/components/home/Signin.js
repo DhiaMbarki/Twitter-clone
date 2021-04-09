@@ -19,7 +19,7 @@ function Signin() {
        <button className="waves-effect waves-light btn-small">signin</button>
        <h5>
            
-<Link  to="/Signup"> <p className="colll">You don't have an account ..</p></Link>
+<Link  to="/Signup"> <p className="colll">I don't have an account ..</p></Link>
 </h5>
       </div>
         </div>
