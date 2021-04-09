@@ -1,9 +1,14 @@
 import React,{useState,useEffect} from 'react'
+import design from 'materialize-css'
+import {useHistory} from 'react-router-dom'
 
 function AddPost() {
+    const history = useHistory()
+
     const [title,setTitle] = useState("")
     const [body,setBody] = useState("")
     const [image,setImage] = useState("")
+    const [url,setUrl] = useState("")
 
 
 
@@ -13,20 +18,45 @@ function AddPost() {
     const data = new FormData()
     data.append("file",image)
     data.append("upload_preset","tweetler")
-    data.append("cloud_name","RBK")
+    data.append("cloud_name","RBK") 
     fetch("	https://api.cloudinary.com/v1_1/rbkk/image/upload",{
         method:"post",
         body:data
     })
     .then(res=>res.json())
     .then(data=>{
-    //    setUrl(data.url)
+       setUrl(data.url)
     console.log(data)
     })
     .catch(err=>{
         console.log(err)
     })
- 
+   
+    fetch("/createpost",{
+        method:"post",
+        headers:{
+            "Content-Type":"application/json"
+        },
+        body:JSON.stringify({
+            title,
+            body,
+            picture:url
+        })
+    }).then(res=>res.json())
+    .then(data=>{
+       if(data.error){
+          design.toast({html: data.error,classes:"#000000 black"})
+       }
+       else{
+           localStorage.setItem("jwt",data.token)
+           localStorage.setItem("user",JSON.stringify(data.user))
+        //    dispatch({type:"USER",payload:data.user})
+           design.toast({html:"created yout tweet with successfully",classes:"#000000 black"})
+           history.push('/')
+       }
+    }).catch(err=>{
+        console.log(err)
+    })
 }
 
 
