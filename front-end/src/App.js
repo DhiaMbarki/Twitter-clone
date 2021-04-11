@@ -9,12 +9,22 @@ import { BrowserRouter, Route, Switch, useHistory } from "react-router-dom";
 import "./App.css";
 import AddPost from "./components/home/AddPost";
 import Profile from "./components/home/profile/Profile";
-import { reducers, initialState } from "./reducers/Reducers";
-export const UserContext = createContext()
-
+import { reducer, initialState } from "./reducers/Reducers";
+export const UserContext = createContext();
 
 const Routing = () => {
   const history = useHistory;
+  const {state,dispatch} = useContext(UserContext)
+  useEffect(()=>{
+    const user = JSON.parse(localStorage.getItem("user"))
+    if(user){
+      dispatch({type:"USER",payload:user})
+    }else{
+      if(!history.location.pathname.startsWith('/reset'))
+           history.push('/signin')
+    }
+  },[])
+ 
   return (
     <Switch>
       <Route exact path="/">
@@ -38,7 +48,7 @@ const Routing = () => {
 };
 
 function App() {
-  const [state, dispatch] = useReducer(reducers, initialState);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
     <UserContext.Provider value={{ state, dispatch }}>

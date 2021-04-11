@@ -3,7 +3,7 @@ import React,{useState,useContext,} from 'react'
 import {Link,useHistory} from 'react-router-dom'
 import {UserContext} from '../../../App'
 const Signin  = ()=>{
-    const {state,dispatch} = useContext()
+    const {state,dispatch} = useContext(UserContext)
     const history = useHistory()
     const [password,setPasword] = useState("")
     const [email,setEmail] = useState("")

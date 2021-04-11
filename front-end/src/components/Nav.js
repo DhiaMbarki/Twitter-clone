@@ -1,6 +1,9 @@
-import React from 'react'
+import React,{useContext,useRef,useEffect,useState} from 'react'
 import {Link} from 'react-router-dom'
+import {UserContext} from '../App'
 function Nav() {
+  const {state,dispatch} = useContext(UserContext)
+
     return (
         <nav>
         <div class="nav-wrapper black">
