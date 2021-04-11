@@ -36,7 +36,7 @@ const SignIn = () => {
         email
       )
     ) {
-      disign.toast({
+      disign.toast({//alert screen
         html: "pleaze enter clear informations  :(",
         classes: "#000000 black",
       });

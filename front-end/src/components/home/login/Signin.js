@@ -1,15 +1,15 @@
 import design from 'materialize-css'
 import React,{useState,useContext,} from 'react'
 import {Link,useHistory} from 'react-router-dom'
-// import {UserContext} from '../../App'
+import {UserContext} from '../../../App'
 const Signin  = ()=>{
-    // const {state,dispatch} = useContext()
+    const {state,dispatch} = useContext()
     const history = useHistory()
     const [password,setPasword] = useState("")
     const [email,setEmail] = useState("")
     const PostData = ()=>{
         if(!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)){  //from emailregex.com
-            design.toast({html: "pleaze enter your informations :(",classes:"#000000 black"})
+            design.toast({html: "pleaze enter your informations :(",classes:"#000000 black"})//alert screen
             return
         }
         fetch("/signin",{
@@ -30,7 +30,7 @@ const Signin  = ()=>{
            else{
                localStorage.setItem("jwt",data.token)
                localStorage.setItem("user",JSON.stringify(data.user))
-            //    dispatch({type:"USER",payload:data.user})
+               dispatch({type:"USER",payload:data.user})
                design.toast({html:"signedin success",classes:"#000000 black"})
                history.push('/')
            }
