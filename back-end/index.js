@@ -1,35 +1,40 @@
-const express = require("express");
+const express = require('express');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const userRoutes = require('./routes/user.routes');
+const postRoutes = require('./routes/post.routes');
+require('dotenv').config({path: './config/.env'});
+require('./config/db');
+const {checkUser, requireAuth} = require('./middleware/auth.middleware');
+const cors = require('cors');
+
 const app = express();
-const mongoose = require("mongoose");
-const PORT = 8000;
-const { MONGOURI } = require("./mongo");
 
+const corsOptions = {
+  origin: process.env.CLIENT_URL,
+  credentials: true,
+  'allowedHeaders': ['sessionId', 'Content-Type'],
+  'exposedHeaders': ['sessionId'],
+  'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  'preflightContinue': false
+}
+app.use(cors(corsOptions));
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(cookieParser());
 
-mongoose.connect(MONGOURI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
+// jwt
+app.get('*', checkUser);
+app.get('/jwtid', requireAuth, (req, res) => {
+  res.status(200).send(res.locals.user._id)
 });
 
-mongoose.connection.on("connected", () => {
-  console.log("connected to mongo with successfully :)");
-});
-mongoose.connection.on("ERROR", (error) => {
-  console.log("there is error :( ", error);
-});
+// routes
+app.use('/api/user', userRoutes);
+app.use('/api/post', postRoutes);
 
-
-require('./models/schema')
-require('./models/post')
-
-
-app.use(express.json())
-
-app.use(require('./path/auth'))
-app.use(require('./path/post'))
-
-
-
-app.listen(PORT, () => {
-  console.log("server jawou behi", PORT);
-});
+// server
+app.listen(process.env.PORT, () => {
+  console.log(`Listening on port ${process.env.PORT}`);
+})
