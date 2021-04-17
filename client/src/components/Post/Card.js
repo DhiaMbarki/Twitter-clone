@@ -73,8 +73,7 @@ const Card = ({ post }) => {
                 />
                 <div className="button-container">
                   <button className="btn" onClick={updateItem}>
-                    change{" "}
-                  </button>
+change                  </button>
                 </div>
               </div>
             )}
@@ -95,22 +94,18 @@ const Card = ({ post }) => {
             {userData._id === post.posterId && (
               <div className="button-container">
                 <div onClick={() => setIsUpdated(!isUpdated)}>
-                  <h5>edit</h5>{" "}
-                </div>
+<h5>edit</h5>                </div>
                 <DeleteCard id={post._id} />
               </div>
             )}
             <div className="card-footer">
               <div className="comment-icon">
-                <button
-                  className="mov"
+                <button className="mov"
                   onClick={() => setShowComments(!showComments)}
-                >
-                  comment
-                </button>
+                >comment</button>
               </div>
               <LikeButton post={post} />
-            </div>
+             </div>
             {showComments && <CardComments post={post} />}
           </div>
         </>

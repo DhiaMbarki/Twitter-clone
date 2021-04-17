@@ -67,9 +67,7 @@ const NewPostForm = () => {
 
   return (
     <div className="post-container">
-      {isLoading ? (
-        <i className="fas fa-spinner fa-pulse"></i>
-      ) : (
+    
         <>
           <div className="data">
             <p>
@@ -157,7 +155,7 @@ const NewPostForm = () => {
             </div>
           </div>
         </>
-      )}
+      
     </div>
   );
 };

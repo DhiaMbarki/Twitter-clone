@@ -34,12 +34,17 @@ const UpdateProfil = () => {
         </div>
         <div className="right-part">
           <div className="bio-update">
-            <h3>Dscribe your self</h3>
+            <div className="mert">
+              <h3>Dscribe your self</h3>
+            </div>
             {updateForm === false && (
               <>
                 <p onClick={() => setUpdateForm(!updateForm)}>{userData.bio}</p>
-                <button className="butt" onClick={() => setUpdateForm(!updateForm)}>
-                  change 
+                <button
+                  className="butt"
+                  onClick={() => setUpdateForm(!updateForm)}
+                >
+                  change
                 </button>
               </>
             )}
@@ -50,17 +55,22 @@ const UpdateProfil = () => {
                   defaultValue={userData.bio}
                   onChange={(e) => setBio(e.target.value)}
                 ></textarea>
-                <button className="butt" onClick={handleUpdate}>Add ⬆️</button>
+                <button className="butt" onClick={handleUpdate}>
+                  Add ⬆️
+                </button>
               </>
             )}
           </div>
-          <h4>Member at  : {dateParser(userData.createdAt)}</h4>
-          <h5 className="butt" onClick={() => setFollowingPopup(true)}>
-           Followers {userData.following ? userData.following.length : ""}
-          </h5>
-          <h5 className="butt" onClick={() => setFollowersPopup(true)}>
-            Following : {userData.followers ? userData.followers.length : ""}
-          </h5>
+          <div className="butt1">
+            <h5 onClick={() => setFollowingPopup(true)}>
+              Followers {userData.following ? userData.following.length : ""}
+            </h5>
+          </div>
+          <div className="butt2">
+            <h5 onClick={() => setFollowersPopup(true)}>
+              Following : {userData.followers ? userData.followers.length : ""}
+            </h5>
+          </div>
         </div>
       </div>
       {followingPopup && (
@@ -79,11 +89,14 @@ const UpdateProfil = () => {
                         <img src={user.picture} alt="user-pic" />
                         <h4>{user.pseudo}</h4>
                         <div className="follow-handler">
-                          <FollowHandler idToFollow={user._id} type={'suggestion'} />
+                          <FollowHandler
+                            idToFollow={user._id}
+                            type={"suggestion"}
+                          />
                         </div>
                       </li>
                     );
-                  } 
+                  }
                 }
                 return null;
               })}
@@ -107,7 +120,10 @@ const UpdateProfil = () => {
                         <img src={user.picture} alt="user-pic" />
                         <h4>{user.pseudo}</h4>
                         <div className="follow-handler">
-                          <FollowHandler idToFollow={user._id} type={'suggestion'} />
+                          <FollowHandler
+                            idToFollow={user._id}
+                            type={"suggestion"}
+                          />
                         </div>
                       </li>
                     );

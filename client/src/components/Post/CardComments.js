@@ -17,7 +17,7 @@ const CardComments = ({ post }) => {
     if (text) {
       dispatch(addComment(post._id, userData._id, text, userData.pseudo))
         .then(() => dispatch(getPosts()))
-        .then(() => setText(""));
+        .then(() => setText(''));
     }
   };
 
@@ -76,8 +76,8 @@ const CardComments = ({ post }) => {
             placeholder="Add your comment.."
           />
           <br />
-          <div>
-            <input className="col" type="submit" value="Add" />
+          <div >
+          <input className="col" type="submit" value="Add"  />
           </div>
         </form>
       )}

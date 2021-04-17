@@ -26,7 +26,7 @@ const SignUpForm = () => {
     if (password !== controlPassword || !terms.checked) {
       if (password !== controlPassword)
         passwordConfirmError.innerHTML =
-          "Les mots de passe ne correspondent pas";
+          "Passwords do not match ";
 
       if (!terms.checked)
         termsError.innerHTML = "pleaze enter all the informations";
@@ -61,7 +61,7 @@ const SignUpForm = () => {
           <SignInForm />
           <span></span>
           <h4 className="success">
-            Enregistrement réussi, veuillez-vous connecter
+          Registration successful, please login!
           </h4>
         </>
       ) : (

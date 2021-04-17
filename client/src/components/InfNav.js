@@ -9,7 +9,7 @@ const InfNav = () => {
           <NavLink to='/' exact activeClassName="active-left-nav">
 <h3 className="mov1">Home</h3>          </NavLink>
           <br/>
-          <NavLink to='/trending' exact activeClassName="active-left-nav">
+          <NavLink to='/Bookmarks' exact activeClassName="active-left-nav">
           <h3 className="mov2">Bookmarks</h3>           </NavLink>
           <br/>
           <NavLink to='/profil' exact activeClassName="active-left-nav">

@@ -10,7 +10,9 @@ const DeleteCard = (props) => {
   return (
     <div
       onClick={() => {
-        deleteQuote();
+      
+          deleteQuote();
+        
       }}
     >
       <img src="./img/icons/trash.svg" alt="trash" />
